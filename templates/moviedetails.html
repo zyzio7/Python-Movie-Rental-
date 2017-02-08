@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+{{ movie.title }}
+    <form method="post" action="/cart/">
+   {% csrf_token %}
+    <input type="hidden" name="idmovie" value="{{ movie.id }}"><br>
+    <input type="submit" value="Dodaj do koszyka!">
+    </form>
+{% endblock %}

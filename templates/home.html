@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+    <a href="login/">Do logowania!</a>
+    <a href="register/">Do rejestracji!</a>
+    {% for movie in movies %}
+        <a href="{% url "movie" movie_id=movie.id %}"> {{ movie.title }} </a>
+    {% endfor %}
+{% endblock %}
