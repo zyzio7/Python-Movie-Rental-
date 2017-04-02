@@ -2,10 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>To jest apka w pytonie!</title>
+    <title>Movie Rental</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet"href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/productdetails.css" />
 </head>
 <body>
-{% block content %}
-{% endblock %}
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Movie Rental</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav horizontal-style">
+
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/cart">Cart</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'history' %}">Order history</a></li>
+            {% else %}
+
+            {% endif %}
+
+            <li><a href="/authors">Authors</a></li>
+          </ul>
+          <ul class="nav navbar-nav horizontal-style pull-right">
+          {% if user.is_authenticated %}
+                <li><a id="navbar-user">Hi {{ user.username }}</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+              <li><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+{#    <hr/>#}
+{#        {{ request.session.session_key }}#}
+{#    <hr/>#}
+    {% block content %}
+    {% endblock %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="/static/js/main.js"></script>
+
+{#    <script src=""/>#}
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+
 </body>
 </html>

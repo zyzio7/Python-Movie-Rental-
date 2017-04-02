@@ -1,0 +1,131 @@
+body {
+    padding-top: 60px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+#navbar-user {
+    color: orange !important;
+    font-weight: bold;
+}
+
+.carousel-inner a img{
+    margin: 0 auto;
+}
+.centered-form{
+	margin-top: 60px;
+}
+
+.centered-form .panel{
+	background: rgba(255, 255, 255, 0.8);
+	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+}
+
+.single-movie {
+    font-size: 60px;
+}
+
+.movie-list {
+    text-align: center;
+}
+
+.movie-list ul {
+    display: inline-block;
+}
+
+.all-movies-table {
+    margin-top: 70px;
+}
+
+#theCarousel .item.active a > img {
+    max-width: 350px;
+    height: 350px;
+}
+
+.product-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+
+
+.multi-item-carousel .carousel-inner > .item {
+  -webkit-transition: 500ms ease-in-out left;
+  transition: 500ms ease-in-out left;
+}
+.multi-item-carousel .carousel-inner .active.left {
+  left: -33%;
+}
+.multi-item-carousel .carousel-inner .active.right {
+  left: 33%;
+}
+.multi-item-carousel .carousel-inner .next {
+  left: 33%;
+}
+.multi-item-carousel .carousel-inner .prev {
+  left: -33%;
+}
+@media all and (transform-3d), (-webkit-transform-3d) {
+  .multi-item-carousel .carousel-inner > .item {
+    -webkit-transition: 500ms ease-in-out left;
+    transition: 500ms ease-in-out left;
+    -webkit-transition: 500ms ease-in-out all;
+    transition: 500ms ease-in-out all;
+    -webkit-backface-visibility: visible;
+            backface-visibility: visible;
+    -webkit-transform: none!important;
+            transform: none!important;
+  }
+}
+.multi-item-carousel .carouse-control.left,
+.multi-item-carousel .carouse-control.right {
+  background-image: none;
+}
+
+.movie-in-cart {
+    max-height: 100px;
+}
+
+.cart {
+    max-width: 60%;
+    margin-top: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.cart-total-cost {
+    font-size: 30px;
+}
+
+.cart-continue-shopping-btn {
+    float: right;
+}
+
+.order-details {
+    text-align: center;
+}
+
+.order-details-left {
+    text-align: left;
+}
+
+.order-details-center {
+    font-weight: bold;
+}
+
+.logout-page {
+    text-align: center;
+}
+
+.authors-page {
+    margin-top: 150px;
+    text-align: center;
+    font-weight: 800;
+    font-size: 60px;
+}
+
+.registration-complete {
+    margin-top: 40px;
+    text-align: center;
+}

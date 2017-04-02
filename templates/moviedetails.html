@@ -1,9 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
-{{ movie.title }}
-    <form method="post" action="/cart/">
-   {% csrf_token %}
-    <input type="hidden" name="idmovie" value="{{ movie.id }}"><br>
-    <input type="submit" value="Dodaj do koszyka!">
-    </form>
+{#    Title: {{ movie.title }}<br/>#}
+{#    Year of production:{{ movie.year }}<br/>#}
+{#    Country: {{ movie.country }}<br/>#}
+{#    Movie type: {{ movie.type }}<br/>#}
+{#    Description: {{ movie.description }}<br/>#}
+{#    Movie price: {{ movie.price }} (7 days access)<br/>#}
+{#    <form method="get" action="/addtocart/">#}
+{#        {% csrf_token %}#}
+{#        <input type="hidden" name="idmovie" value="{{ movie.id }}"><br>#}
+{#        <input type="submit" value="Dodaj do koszyka!">#}
+{#    </form>#}
+    <div class="item-container img-rounded">
+			<div class="container product-detail-panel">
+				<div class="col-md-3">
+					<div class="product">
+                        <img id="item-display" src="/static/images/{{ movie.title }}.jpg" alt=""/>
+					</div>
+				</div>
+
+				<div class="col-md-7">
+					<div class="product-page product-title">{{ movie.title }}</div>
+					<div class="product-page product-desc">{{ movie.description }}</div>
+                    <hr>
+                    <div class="product-page product-rating" rate-value="{{ movie.rate }}">Rating ({{ movie.rate }})<br></div>
+					<hr>
+                    <form method="get" action="/addtocart/"> {% csrf_token %}
+                        <div class="btn-group">
+                            <div class="product-price">Cost<br> {{ movie.price }}$ (7 days access)
+                            <input type="hidden" name="idmovie" value="{{ movie.id }}">
+                            <input class="btn btn-success" type="submit" value="Add to cart">
+                            </div>
+                        </div>
+                    </form>
+					<hr>
+				</div>
+			</div>
+		</div>
 {% endblock %}

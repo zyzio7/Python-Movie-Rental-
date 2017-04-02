@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+{#    Your order history:#}
+{#    {% for rental in rental_list %}#}
+{#        Order number: {{ rental.id }}<br/>#}
+{#        Date: {{ rental.rent_start_date }} <br/>#}
+{#        Access until: {{ rental.rent_end_date }} <br/>#}
+{#        {% for movie in rental.cart.movie.all %}#}
+{#            <a href="{% url "movie" movie_id=movie.id %}"> {{ movie.title }} </a><br/>#}
+{#        {% endfor %}#}
+{#        <hr/>#}
+{#    {% endfor %}#}
+
+<div class="cart">
+    {% for rental in rental_list %}
+    <div class="">
+        <div class="order-details">
+            <h3 class="order-details-center">Order number: {{ rental.id }}</h3>
+            <h4 class="order-details-left">Date: {{ rental.rent_start_date }}</h4>
+            <h4 class="order-details-left">Access until: {{ rental.rent_end_date }}</h4>
+        </div>
+        <table class="table table-hover cart-movie-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Production year</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for movie in rental.cart.movie.all %}
+                <tr>
+                  <td><img class="movie-in-cart" src="/static/images/{{ movie.title }}.jpg"/></td>
+                  <td>
+                      <a href="{% url "movie" movie_id=movie.id %}"> {{ movie.title }} </a>
+                  </td>
+                  <td>{{ movie.type }}</td>
+                  <td>{{ movie.year }}</td>
+                  <td>{{ movie.price}}</td>
+                </tr>
+          {% endfor %}
+          </tbody>
+          <tfoot>
+                <tr>
+                    <td/>
+                    <td/>
+                    <td/>
+                    <td/>
+                    <td><h3>Total ${{ rental.total_cost }}</h3></td>
+                </tr>
+          </tfoot>
+        </table>
+    </div>
+        <br><br><br>
+    {% endfor %}
+</div>
+
+{% endblock %}

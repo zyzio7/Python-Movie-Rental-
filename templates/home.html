@@ -1,8 +1,67 @@
 {% extends "base.html" %}
 {% block content %}
-    <a href="login/">Do logowania!</a>
-    <a href="register/">Do rejestracji!</a>
-    {% for movie in movies %}
-        <a href="{% url "movie" movie_id=movie.id %}"> {{ movie.title }} </a>
-    {% endfor %}
+    <div class="row">
+    <div class="col-md-12">
+      <div class="carousel slide multi-item-carousel" id="theCarousel">
+        <div class="carousel-inner">
+          <div class="item active">
+              <div class="col-xs-4"><a href="{% url "moviebytitle" movie_title="Django" %}"><img src="/static/images/Django.jpg" class="img-responsive"></a></div>
+          </div>
+{#            <a href="{% url "movie" movie_id=movie.id %}"> {{ movie.title }} </a>#}
+          <div class="item">
+            <div class="col-xs-4"><a href="{% url "moviebytitle" movie_title="Batman - Begins" %}"><img src="/static/images/Batman%20-%20Begins.jpg" class="img-responsive"></a></div>
+          </div>
+          <div class="item">
+            <div class="col-xs-4"><a href="{% url "moviebytitle" movie_title="Titanic" %}"><img src="/static/images/Titanic.jpg" class="img-responsive"></a></div>
+          </div>
+          <div class="item">
+            <div class="col-xs-4"><a href="{% url "moviebytitle" movie_title="Incepcja" %}"><img src="/static/images/Incepcja.jpg" class="img-responsive"></a></div>
+          </div>
+          <div class="item">
+            <div class="col-xs-4"><a href="{% url "moviebytitle" movie_title="Zielona mila" %}"><img src="/static/images/Zielona%20mila.jpg" class="img-responsive"></a></div>
+          </div>
+          <div class="item">
+            <div class="col-xs-4"><a href="{% url "moviebytitle" movie_title="Full Metal Jacket" %}"><img src="/static/images/Full%20Metal%20Jacket.jpg" class="img-responsive"></a></div>
+          </div>
+
+          <!--  Example item end -->
+        </div>
+          <div>
+
+        <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+          </div>
+          <div>
+        <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+
+          </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="all-movies-table">
+        <table id="movies-table" class="table table-hover">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Production year</th>
+              <th>Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for movie in movies %}
+                <tr>
+                  <td>
+                      <a href="{% url "movie" movie_id=movie.id %}"> {{ movie.title }} </a>
+                  </td>
+                  <td>{{ movie.type }}</td>
+                  <td>{{ movie.year }}</td>
+                  <td>{{ movie.rate}}</td>
+                </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+    </div>
+
+
 {% endblock %}

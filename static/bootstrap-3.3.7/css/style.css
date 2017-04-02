@@ -1,0 +1,14 @@
+body {
+    padding-top: 60px;
+}
+
+.navbar-user a {
+    color: orange !important;
+    font-weight: bold !important;
+}
+
+.logout-page-duration-info {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
